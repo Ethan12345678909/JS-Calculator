@@ -20,20 +20,25 @@ function equalButPress() {
 
 }
 
+//clears everything EXCEPT memory
 function clearButPress() {
 preVal = ''
 newVal = ''
 resultVal = ''
 mathOperator = ''
 decimalClicked = false
-valMemStored = ''
 document.getElementById('entry').value = '0'
 }
 
+//to store the current value in entry in val mem stored
 function copyButPress() {
-
+valMemStored = document.getElementById('entry').value
 }
 
+//if a value has been stored, paste it in entry window and assign it as new val. 
 function pasteButPress() {
-
+if (valMemStored) {
+    document.getElementById('entry').valMemStored
+    newVal = valMemStored
+}
 }
