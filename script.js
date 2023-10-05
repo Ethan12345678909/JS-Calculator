@@ -32,11 +32,51 @@ document.getElementById('entry').value = newVal
 }
 
 function mathButPress(operator) {
-
+    // if no value from prev equation, move it over
+if (!resultVal) {
+    preVal = newVal
+}
+else {
+    //current result is stored as prev value
+    preVal = resultVal
+}
+//restart to create a new number
+newVal = ''
+//reset decimal clicked
+decimalClicked = false
+//store operator clicked
+mathOperator = operator
+//prepare entry for recieving new number
+resultVal = ''
+document.getElementById('entry').value = ''
 }
 
 function equalButPress() {
+decimalClicked = false
+preVal = parseFloat(preVal)
+newVal = parseFloat(newVal)
 
+//perform calcs based on op
+switch (mathOperator) {
+    case "+":
+        resultVal = preVal + newVal
+        break
+    case "-":
+        resultVal = preVal - newVal
+        break
+    case "*":
+        resultVal = preVal * newVal
+        break
+    case "/":
+        resultVal = preVal / newVal
+        break
+    
+        default:
+             resultVal = newVal
+}
+preVal = newVal
+
+document.getElementById('entry').value = resultVal
 }
 
 //clears everything EXCEPT memory
